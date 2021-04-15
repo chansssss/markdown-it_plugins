@@ -1,5 +1,6 @@
 /* eslint-disable no-debugger */
-var mermaid = require('mermaid')
+import mermaid from 'mermaid'
+
 function mermaidPlugin(md) {
   function mermaidParse(state, startLine, endLine, silent) {
     var marker; var len; var params; var nextLine; var mem; var token; var markup
@@ -109,5 +110,6 @@ function mermaidPlugin(md) {
   md.renderer.rules['mermaid'] = render
 }
 
-module.exports = mermaidPlugin
+export default mermaidPlugin
+
 

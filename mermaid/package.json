@@ -1,6 +1,6 @@
 {
-  "name": "@wesi/markdown-it_mermaid",
-  "version": "1.0.1",
+  "name": "@wesi/markdown-it-mermaid",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "mermaid": "^8.9.2"
+  },
+  "exports":{ 
+    "require": "./index.js",
+    "import": "./esm.js" 
   }
 }

@@ -1,7 +1,6 @@
 /* eslint-disable no-debugger */
-var mermaid = require('mermaid')
-function mermaidPlugin(md) {
-  function mermaidParse(state, startLine, endLine, silent) {
+function webviewPlugin(md) {
+  function webviewParse(state, startLine, endLine, silent) {
     var marker; var len; var params; var nextLine; var mem; var token; var markup
     var haveEndMarker = false
     var pos = state.bMarks[startLine] + state.tShift[startLine]
@@ -27,7 +26,7 @@ function mermaidPlugin(md) {
 
     markup = state.src.slice(mem, pos)
     params = state.src.slice(pos, max)
-    if (params.indexOf('mermaid') < 0) {
+    if (params.indexOf('webview') < 0) {
       return false
     }
     if (marker === 0x60 /* ` */) {
@@ -87,7 +86,7 @@ function mermaidPlugin(md) {
 
     state.line = nextLine + (haveEndMarker ? 1 : 0)
 
-    token = state.push('mermaid', 'mermaid', 0)
+    token = state.push('webview', 'webview', 0)
     token.info = params
     token.content = state.getLines(startLine + 1, nextLine, len, true)
     token.markup = markup
@@ -96,18 +95,17 @@ function mermaidPlugin(md) {
     return true
   }
   function render(tokens, idx) {
-    var needsUniqueId = 'render' + +new Date()
-    try {
-      mermaid.mermaidAPI.parse(tokens[idx].content)
-    } catch (error) {
-      return "<div class='error' style='color:#F56C6C'>mermaid 语法错误，请修正</div>"
-    }
-    mermaid.mermaidAPI.render(needsUniqueId, tokens[idx].content, sc => { tokens[idx].content = sc })
-    return "<div class='mermaid'>" + tokens[idx].content + '</div>'
+    return `<div class="webview" 
+            style="width: 100%;
+            height: auto;
+            padding: 10px;
+            border: 1px solid #e1e4e8;
+            box-sizing: border-box;">
+            ${tokens[idx].content}
+            </div>`
   }
-  md.block.ruler.before('table', 'mermaid', mermaidParse)
-  md.renderer.rules['mermaid'] = render
+  md.block.ruler.before('table', 'webview', webviewParse)
+  md.renderer.rules['webview'] = render
 }
 
-module.exports = mermaidPlugin
-
+export default webviewPlugin
