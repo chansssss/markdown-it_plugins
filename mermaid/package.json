@@ -1,6 +1,6 @@
 {
-  "name": "markdwon-it_mermaid",
-  "version": "1.0.0",
+  "name": "@wesi/markdown-it_mermaid",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {

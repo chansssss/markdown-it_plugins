@@ -110,4 +110,5 @@ function mermaidPlugin(md) {
   md.renderer.rules['mermaid'] = render
 }
 
-export default mermaidPlugin
+module.exports = mermaidPlugin
+

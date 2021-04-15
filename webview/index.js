@@ -108,4 +108,6 @@ function webviewPlugin(md) {
   md.renderer.rules['webview'] = render
 }
 
-export default webviewPlugin
+// export default webviewPlugin
+
+module.exports = webviewPlugin

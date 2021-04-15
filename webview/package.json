@@ -1,6 +1,6 @@
 {
-  "name": "markdwon-it_webview",
-  "version": "1.0.0",
+  "name": "markdown-it_webview",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
