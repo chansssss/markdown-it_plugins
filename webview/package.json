@@ -7,9 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "wesi",
-  "license": "ISC",
-  "exports":{ 
-    "require": "./index.js",
-    "import": "./esm.js" 
-  }
+  "license": "ISC"
 }

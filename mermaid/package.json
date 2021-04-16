@@ -10,9 +10,5 @@
   "license": "ISC",
   "dependencies": {
     "mermaid": "^8.9.2"
-  },
-  "exports":{ 
-    "require": "./index.js",
-    "import": "./esm.js" 
   }
 }
